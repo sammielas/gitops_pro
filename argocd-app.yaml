@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitopspro
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL : "https://github.com/sammielas/gitops_pro"
+    targetRevision: HEAD
+    path: gitops-pro-app
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
