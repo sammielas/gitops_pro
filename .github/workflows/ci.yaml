@@ -35,7 +35,7 @@
              # This updates the Kubernetes deployment to use the newly built image
           - name: Update Helm Chart with new image tag
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
             run: |
                 sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./gitops-pro-app/values.yaml
                 git add ./gitops-pro-app/values.yaml
