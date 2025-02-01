@@ -1,0 +1,13 @@
+image:
+  repository: sammielas/gitopspro
+  tag: 2c99e96
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 8085
+ingress:
+  enabled: false
+serviceAccount:
+  enabled: false
+autoscaling:
+  enabled: false
