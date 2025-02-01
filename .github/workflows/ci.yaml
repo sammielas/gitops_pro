@@ -30,7 +30,7 @@
             run: |
                 git config --local user.email "samflicks@gmail.com"
                 git config --local user.name "sammielas"
-       # Update Helm chart configuration with new image version
+          # Update Helm chart configuration with new image version
           # Use sed to replace the existing image tag with new SHORT_SHA in values.yaml
              # This updates the Kubernetes deployment to use the newly built image
           - name: Update Helm Chart with new image tag
