@@ -7,8 +7,7 @@
         branches:
           - main
     
-    jobs: 
-      build_and_push:
+    jobs:       build_and_push:
         runs-on: ubuntu-latest
         steps:
           - name: Checkout Code
@@ -38,7 +37,12 @@
               PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
             run: |
                 sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./gitops-pro-app/values.yaml
-                git add ./gitops-pro-app/values.yaml
-                git commit -m "Updated image tag to ${{ env.SHORT_SHA }}"
-                git push origin main
+          - name: Push Updated Helm Chart
+            env:
+              PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+            run: |
+                     git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/sammielas/gitops_pro.git
+                     git add ./gitops-pro-app/values.yaml
+                     git commit -m "Updated image tag to ${{ env.SHORT_SHA }}"
+                     git push origin main
             
