@@ -25,7 +25,7 @@
           - name: Push to Dockerhub
             run: |
               docker push sammielas/gitopspro:${{ env.SHORT_SHA }}
-        # Configure Git identity for automated commits
+          # Configure Git identity for automated commits
           - name: Configure Git Author
             run: |
                 git config --local user.email "samflicks@gmail.com"
