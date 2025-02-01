@@ -35,7 +35,7 @@
              # This updates the Kubernetes deployment to use the newly built image
           - name: Update Helm Chart with new image tag
             run: |
-                sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./gitops_pro/values.yaml
+                sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./gitops-pro-app/values.yaml
                 git add ./gitops-pro-app/values.yaml
                 git commit -m "Updated image tag to ${{ env.SHORT_SHA }}"
                 git push
