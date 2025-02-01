@@ -25,4 +25,18 @@
           - name: Push to Dockerhub
             run: |
               docker push sammielas/gitopspro:${{ env.SHORT_SHA }}
-          
+        # Configure Git identity for automated commits
+          - name: Configure Git Author
+            run: |
+                git config --local user.email "samflicks@gmail.com"
+                git config --local user.name "sammielas"
+       # Update Helm chart configuration with new image version
+          # Use sed to replace the existing image tag with new SHORT_SHA in values.yaml
+             # This updates the Kubernetes deployment to use the newly built image
+          - name: Update Helm Chart with new image tag
+            run: |
+                sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./gitops_pro/values.yaml
+                git add ./gitops_pro/values.yaml
+                git commit -m "Updated image tag to ${{ env.SHORT_SHA }}"
+                git push
+            
