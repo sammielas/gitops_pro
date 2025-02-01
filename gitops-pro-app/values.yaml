@@ -1,6 +1,6 @@
 image:
   repository: sammielas/gitopspro
-  tag: 0eebcec
+  tag: 580fe52
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
