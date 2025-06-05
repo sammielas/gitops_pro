@@ -3,7 +3,7 @@ image:
   tag: cffced0
   pullPolicy: IfNotPresent
 service:
-  type: ClusterIP
+  type: NodePort
   port: 8085
 ingress:
   enabled: false

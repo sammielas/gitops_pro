@@ -47,6 +47,9 @@ resource "null_resource" "start_minikube" {
   }
 }
 
+
+
+
 # Output message indicating successful Minikube setup
 output "minikube_status" {
   value = "Minikube has been successfully installed and started with the profile 'gitops-pro'!"
