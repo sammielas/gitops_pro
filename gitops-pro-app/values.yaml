@@ -1,6 +1,6 @@
 image:
   repository: sammielas/gitopspro
-  tag: 12d0c2b
+  tag: 6785fdb
   pullPolicy: IfNotPresent
 service:
   type: NodePort
